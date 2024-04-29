@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+</head>
+<body>
+    <h1>Projects</h1>
+    <ul id="projects-list">
+        <!-- Projects will be dynamically added here -->
+    </ul>
+
+    <script>
+        // Data projects
+        var projects = [
+            {
+                'title': 'Membuat Blog Menarik dengan BloggerMeningkatkan Keuntungan dengan Bisnis Digital: Tips dan Strategi Sukses',
+                'description': ' Dalam era digital yang semakin berkembang, bisnis digital telah menjadi bagian yang tidaterpisahkan dari perekonomian global. Bisnis digital mencakup berbagai model bisnis yang mengandalkan teknologi digital untuk mencapai tujuan mereka. Baik Anda seorang wirausaha yang baru memulai atau pemilik bisnis yang berpengalaman, memahami strategi dan konsep dasar bisnis digital dapat membantu Anda meningkatkan keuntungan dan pertumbuhan bisnis Anda.',
+                'image': {'url': 'path/to/blogger.jpg'},
+                'link': 'https://annisabisdig.blogspot.com/'
+            },
+            {
+                'title': 'UTS Big Data',
+                'description': 'Postingan kali ini, memperlihatkan kepada masyarakat tugas UTS kepada msyarakat yang memiliki ketertarikan kepada data yang besar atau Big Data. ',
+                'image': {'url': 'path/to/image3.jpg'},
+                'link': 'https://annisabisdig.blogspot.com/2024/04/uts-big-data.html'
+            }
+        ];
+          // Function to render projects
+          function renderProjects() {
+            var projectsList = document.getElementById('projects-list');
+            projects.forEach(function(project) {
+                var li = document.createElement('li');
+                var img = document.createElement('img');
+                img.src = project.image.url;
+                img.alt = project.title;
+                var h2 = document.createElement('h2');
+                h2.textContent = project.title;
+                var p = document.createElement('p');
+                p.textContent = project.description;
+                var a = document.createElement('a');
+                a.href = project.link;
+                a.target = '_blank';
+                a.textContent = 'Visit Project';
+
+                li.appendChild(h2);
+                li.appendChild(p);
+                li.appendChild(img);
+                li.appendChild(a);
+                projectsList.appendChild(li);
+            });
+        }
+
+        // Render projects when the page is loaded
+        document.addEventListener('DOMContentLoaded', renderProjects);
+    </script>
+</body>
+</html>
+
+

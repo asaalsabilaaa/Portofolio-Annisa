@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <style> 
+        body { 
+            background-color: burlywood ;
+            margin: 0; /* Margin nol untuk body */
+            padding: 20px; /* Jarak antara konten dengan tepi browser */
+            font-family: Arial, sans-serif; /* Font family */
+        }
+        h1 {
+            color: black; /* Warna teks hitam */
+            text-align: center; /* Pusatkan judul */
+        }
+        h2 {
+            color: black; /* Warna teks hitam */
+            margin-top: 20px; /* Jarak atas antara elemen h2 */
+            margin-right: 20px; /* Margin kanan */
+            margin-bottom: 20px; /* Margin bawah */
+            margin-left: 20px; /* Margin kiri */
+        }
+        ul {
+            list-style-type: none; /* Hapus bullet pada list */
+            padding: 0; /* Hilangkan padding */
+        }
+        li {
+            margin-bottom: 20px; /* Jarak antara item di dalam list */
+        }
+        a {
+            color: black; /* Warna teks hitam */
+            text-decoration: none; /* Hapus underline pada link */
+        }
+        a:hover {
+            text-decoration: underline; /* Tampilkan underline saat hover pada link */
+        }
+        h2:last-of-type {
+            margin-bottom: 0; /* Hapus margin bottom pada elemen h2 terakhir */
+        }
+
+
+    </style>
+</head>
+<body><!-- AWALAN BODY -->
+    
+    <!-- AWAL NAVBAR -->
+    <header class="header">
+        <a href="#" class="logo">Annisa Salsabila</a>
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Projects</a>
+            <a href="#">Blog</a>
+            <a href="#">About <Menu></Menu></a>
+            <a href="#">Skills</a>
+        </nav>
+    </header>
+    <!-- AKHIR NAVBAR -->
+
+    <!-- AWAL WELCOME TEXT -->
+    <section class="container-background1">
+        <div class="container-background2">
+            <h1 class="animasi-text1">WELCOME TO ANNISA'S PORTOFOLIO</h1>
+        </div>
+    </section>
+    <!-- AKHIR WELCOME TEXT -->
+
+    <h1>What will you find here</h1>
+    <h2><a href="{% url 'projects' %}"> Project:</a></h2>
+    <ul>
+        {% for project in projects %}
+        <li>{{ project.title }} - {{ project.description }}</li>
+        {% endfor %}
+    </ul>
+    <h2><a href="{% url 'skills' %}"> Skill:</a></h2>
+    <ul>
+        {% for skill in skills %}
+        <li>{{ skill.name }} - {{ skill.description }} ({{ skill.percentage }}%)</li>
+        {% endfor %}
+    </ul>
+    
+
+    <h2><a href="{% url 'blog' %}"> Blog:</a></h2>
+    {% for blog in blogs %}
+    <li><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></li>
+    {% endfor %}
+
+
+    <h2>Footer</h2>
+    <a href="{% url 'contact' %}">Contact</a><br>
+    <a href="{% url 'about' %}">About</a>
+</body>
+</html>
